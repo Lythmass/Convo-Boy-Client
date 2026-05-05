@@ -17,7 +17,7 @@ export const useSendMessage = () => {
     try {
       const formData = new FormData();
       formData.append("history", JSON.stringify(history));
-      formData.append("audio_file", audioBlob, "recording.wav");
+      formData.append("audio_file", audioBlob, "recording.webm");
 
       const response = await fetch("http://127.0.0.1:8000/chat", {
         method: "POST",

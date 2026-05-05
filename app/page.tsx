@@ -8,36 +8,18 @@ export default function ChatPage() {
     useBeginRecording({ sendMessage });
 
   return (
-    <div className="max-w-2xl mx-auto p-8">
-      <h1 className="text-2xl font-bold mb-6">AI Chat (No-DB Version)</h1>
-
-      <div className="space-y-4 mb-8 h-125 overflow-y-auto border p-4 rounded-lg">
-        {history
-          .filter((m) => m.role !== "system")
-          .map((msg, i) => (
-            <div
-              key={i}
-              className={`p-3 rounded-lg ${msg.role === "user" ? "bg-blue-100 ml-auto max-w-[80%]" : "bg-gray-100 mr-auto max-w-[80%]"}`}
-            >
-              <p className="text-sm font-semibold mb-1">
-                {msg.role === "user" ? "You" : "AI"}
-              </p>
-              <p>{msg.content}</p>
-            </div>
-          ))}
-        {loading && <p className="text-gray-400 italic">AI is thinking...</p>}
-      </div>
-
-      <div className="w-full flex gap-2">
-        <button
+    <div className="w-full h-screen flex justify-center items-center bg-gray-800 mx-auto p-8">
+      <div className="w-full flex flex-col items-center max-w-xl h-[calc(100vh-5rem)] shadow-2xl rounded-lg p-6  bg-gray-900">
+        {" "}
+        <div
           onMouseDown={handleBeginRecording}
           onMouseUp={handleStopRecording}
-          className={`px-4 w-full py-2 rounded-full ${
+          className={`p-4 cursor-pointer mt-auto rounded-full ${
             isRecording ? "bg-red-500 animate-pulse" : "bg-gray-200"
           }`}
         >
-          {isRecording ? "Listening..." : "🎤 Hold to Speak"}
-        </button>
+          {isRecording ? "..." : "🎤"}
+        </div>
       </div>
     </div>
   );
