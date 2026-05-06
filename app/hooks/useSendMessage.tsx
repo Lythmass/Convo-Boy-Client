@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { sendData } from "../helpers/sendData";
 
-type History = {
+export interface IHistory {
   role: "user" | "assistant" | "system";
   content: string;
-};
+}
 
 export const useSendMessage = () => {
   const [loading, setLoading] = useState(false);
-  const [history, setHistory] = useState<History[]>([]);
+  const [history, setHistory] = useState<IHistory[]>([]);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   const sendMessage = async (audioBlob: Blob) => {
     if (!audioBlob) {
@@ -15,20 +17,15 @@ export const useSendMessage = () => {
     }
     setLoading(true);
     try {
-      const formData = new FormData();
-      formData.append("history", JSON.stringify(history));
-      formData.append("audio_file", audioBlob, "recording.webm");
-
-      const response = await fetch("http://127.0.0.1:8000/chat", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
+      const data = await sendData(audioBlob, history);
 
       setHistory((prev) => [...prev, ...data.reply]);
       const audio = new Audio(`data:audio/mp3;base64,${data.audio_file}`);
       audio.play();
+
+      audio.addEventListener("playing", () => setIsAudioPlaying(true));
+      audio.addEventListener("pause", () => setIsAudioPlaying(false));
+      audio.addEventListener("ended", () => setIsAudioPlaying(false));
     } catch (error) {
       console.error("Failed to chat:", error);
     } finally {
@@ -36,5 +33,12 @@ export const useSendMessage = () => {
     }
   };
 
-  return { loading, setLoading, history, setHistory, sendMessage };
+  return {
+    loading,
+    setLoading,
+    history,
+    setHistory,
+    sendMessage,
+    isAudioPlaying,
+  };
 };

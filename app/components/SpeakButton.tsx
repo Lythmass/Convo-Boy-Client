@@ -13,7 +13,7 @@ export const SpeakButton: React.FC<ISpeakButtonProps> = ({
     <div
       onMouseDown={handleBeginRecording}
       onMouseUp={handleStopRecording}
-      className={`p-4 cursor-pointer mt-auto rounded-full ${
+      className={`p-4 absolute bottom-5 cursor-pointer mt-auto rounded-full ${
         isRecording ? "bg-red-500 animate-pulse" : "bg-gray-200"
       }`}
     >
