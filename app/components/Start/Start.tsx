@@ -12,7 +12,7 @@ export const Start = ({ setHasStartedSession }: StartProps) => {
       </p>
       <div
         onClick={() => setHasStartedSession(true)}
-        className="w-24 cursor-pointer h-24 flex justify-center items-center rounded-full bg-green-300"
+        className="w-24 animate-heartbeat cursor-pointer h-24 flex justify-center items-center rounded-full bg-green-300"
       >
         <CallSVG className="mr-1" width={60} height={60} fill="white" />
       </div>
