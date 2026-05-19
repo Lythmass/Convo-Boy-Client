@@ -19,8 +19,10 @@ export default function ChatPage() {
     <>
       {hasStartedSession && <Background />}
 
-      <div className="w-full bg-gray-800 h-screen flex justify-center items-center mx-auto p-8">
-        <div className="max-w-xl w-full py-7 flex justify-center items-start shadow-2xl rounded-lg bg-gray-900 h-[calc(100vh-5rem)]">
+      <div className="w-full bg-linear-120 from-[#102428] to-[#141028] h-screen flex justify-center items-center mx-auto p-8">
+        <div
+          className={`py-7 flex justify-center items-start shadow-2xl rounded-4xl shadow-2xl bg-linear-to-r from-[#C5E8D8] to-[#C5D5E8]  ${!hasStartedSession && !hasFinishedSession ? "h-80 w-120" : "h-[calc(100vh-5rem)] max-w-xl w-full"}`}
+        >
           {hasStartedSession && (
             <Speak
               isAudioPlaying={isAudioPlaying}
