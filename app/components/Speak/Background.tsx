@@ -1,14 +1,18 @@
 export const Background = () => {
   return (
-    <div className="w-full absolute z-0 top-0 h-full left-0 overflow-hidden">
+    <div className="w-full rounded-4xl absolute -z-10 top-0 h-full left-0 overflow-hidden">
       <video
         autoPlay
         loop
         muted
         preload="none"
-        className="w-full h-full object-cover"
+        className="w-full h-full rounded-4xl object-cover"
       >
-        <source src="/Background.mp4" type="video/mp4" />
+        <source
+          className="rounded-4xl"
+          src="/Background.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
   );

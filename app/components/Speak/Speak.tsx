@@ -1,3 +1,4 @@
+import Background from "./Background";
 import LionIdle from "./LionIdle";
 import SpeakButton from "./SpeakButton";
 
@@ -15,7 +16,8 @@ export const Speak = ({
   handleStopRecording,
 }: ISpeakProps) => {
   return (
-    <div className="w-full relative z-10 gap-5 flex flex-col items-center h-full border-2 border-gray-200">
+    <div className="w-full rounded-4xl relative z-10 gap-5 flex flex-col items-center h-full">
+      <Background />
       <LionIdle isPlayingAudio={isAudioPlaying} />
       <SpeakButton
         isRecording={isRecording}
