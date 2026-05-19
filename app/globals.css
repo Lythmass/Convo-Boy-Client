@@ -1,21 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --animate-heartbeat: heartbeat 3s ease-in-out infinite;
+  --animate-gradient-flow: gradient-flow 4s ease-in-out infinite;
 
-  @keyframes heartbeat {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    25% {
-      transform: scale(1);
+  @keyframes gradient-flow {
+    0% {
+      background-position: 0% 100%;
     }
     50% {
-      transform: scale(1);
+      background-position: 50% 100%;
     }
-    75% {
-      transform: scale(1.025);
+    100% {
+      background-position: 0% 100%;
     }
   }
 }
