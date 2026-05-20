@@ -8,12 +8,13 @@ import { End } from "./components/End/End";
 import { Calling } from "./components/Start/Calling";
 
 export default function ChatPage() {
-  const { sendMessage, isAudioPlaying } = useSendMessage();
+  const { sendMessage, isAudioPlaying, history } = useSendMessage();
   const { handleBeginRecording, isRecording, handleStopRecording } =
     useBeginRecording({ sendMessage });
   const {
     hasStartedSession,
     hasFinishedSession,
+    setHasFinishedSession,
     handleStartCalling,
     handleHangup,
     isCalling,
@@ -37,7 +38,12 @@ export default function ChatPage() {
           <Start handleStartCalling={handleStartCalling} />
         )}
         {isCalling && <Calling handleHangup={handleHangup} />}
-        {hasFinishedSession && <End />}
+        {hasFinishedSession && (
+          <End
+            closeEndScreen={() => setHasFinishedSession(false)}
+            messages={history}
+          />
+        )}
       </div>
     </div>
   );
