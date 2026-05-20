@@ -6,19 +6,23 @@ import { Speak } from "./components/Speak/Speak";
 import { Start } from "./components/Start/Start";
 import { End } from "./components/End/End";
 import { Calling } from "./components/Start/Calling";
-
 export default function ChatPage() {
-  const { sendMessage, isAudioPlaying, history } = useSendMessage();
-  const { handleBeginRecording, isRecording, handleStopRecording } =
-    useBeginRecording({ sendMessage });
   const {
     hasStartedSession,
     hasFinishedSession,
     setHasFinishedSession,
+    setHasStartedSession,
     handleStartCalling,
     handleHangup,
     isCalling,
   } = useManageCall();
+
+  const { sendMessage, isAudioPlaying, history } = useSendMessage({
+    setHasFinishedSession,
+    setHasStartedSession,
+  });
+  const { handleBeginRecording, isRecording, handleStopRecording } =
+    useBeginRecording({ sendMessage });
 
   return (
     <div className="w-full bg-size-[400%_400%] animate-gradient-flow bg-linear-120 from-[#102428] to-[#141028] h-screen flex justify-center items-center mx-auto p-8">
