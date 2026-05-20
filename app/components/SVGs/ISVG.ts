@@ -3,4 +3,5 @@ export interface ISVG {
   height?: number;
   fill?: string;
   className?: string;
+  onClick?: () => void;
 }

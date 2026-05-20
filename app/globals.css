@@ -2,6 +2,9 @@
 
 @theme {
   --animate-gradient-flow: gradient-flow 4s ease-in-out infinite;
+  --animate-ring-shake: ring-shake 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+    infinite;
+  --animate-ring-expand: ring-expand 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   @keyframes gradient-flow {
     0% {
@@ -12,6 +15,33 @@
     }
     100% {
       background-position: 0% 100%;
+    }
+  }
+
+  @keyframes ring-shake {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(-2deg) scale(1.02);
+    }
+    50% {
+      transform: rotate(2deg) scale(1.02);
+    }
+    75% {
+      transform: rotate(-2deg) scale(1.02);
+    }
+  }
+
+  @keyframes ring-expand {
+    0% {
+      transform: scale(0.7);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
     }
   }
 }
