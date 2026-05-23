@@ -3,7 +3,7 @@ import CallSVG from "../SVGs/CallSVG";
 import { HangupSVG } from "../SVGs/HangupSVG";
 
 interface ICallingProps {
-  handleHangup: () => void;
+  handleHangup: (isEndingConversation?: boolean) => void;
 }
 
 export const Calling = ({ handleHangup }: ICallingProps) => {
@@ -33,7 +33,7 @@ export const Calling = ({ handleHangup }: ICallingProps) => {
         height={70}
         fill="white"
         className="bg-red-500 absolute bottom-10 cursor-pointer hover:bg-red-600 hover:scale-105 transition-all rounded-full p-4"
-        onClick={handleHangup}
+        onClick={() => handleHangup(false)}
       />
     </div>
   );

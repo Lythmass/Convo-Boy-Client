@@ -35,6 +35,7 @@ export default function ChatPage() {
             isRecording={isRecording}
             handleBeginRecording={handleBeginRecording}
             handleStopRecording={handleStopRecording}
+            handleHangup={handleHangup}
           />
         )}
 

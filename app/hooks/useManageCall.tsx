@@ -14,7 +14,12 @@ export const useManageCall = () => {
     }, 4000);
   };
 
-  const handleHangup = () => {
+  const handleHangup = (isEndingConversation?: boolean) => {
+    if (isEndingConversation) {
+      setHasFinishedSession(true);
+      setHasStartedSession(false);
+      return;
+    }
     if (callTimeoutRef.current) {
       clearTimeout(callTimeoutRef.current);
       callTimeoutRef.current = null;

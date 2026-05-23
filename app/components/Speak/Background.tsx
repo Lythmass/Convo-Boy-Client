@@ -6,7 +6,7 @@ export const Background = () => {
         loop
         muted
         preload="none"
-        className="w-full h-full rounded-4xl object-cover"
+        className="w-full h-full object-cover rounded-4xl"
       >
         <source
           className="rounded-4xl"
