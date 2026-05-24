@@ -1,14 +1,23 @@
 import { dmsans, nunito } from "@/app/fonts";
 import CallSVG from "../SVGs/CallSVG";
+import { LevelChooser } from "./LevelChooser";
+import { IOptionProps } from "./Option";
+import { Dispatch } from "react";
 
 interface StartProps {
   handleStartCalling: () => void;
+  selectedOption: IOptionProps | null;
+  setSelectedOption: Dispatch<React.SetStateAction<IOptionProps | null>>;
 }
 
-export const Start = ({ handleStartCalling }: StartProps) => {
+export const Start = ({
+  handleStartCalling,
+  selectedOption,
+  setSelectedOption,
+}: StartProps) => {
   return (
-    <div className="w-full relative h-full flex items-center justify-center flex-col">
-      <div className="flex absolute top-5 flex-col gap-3 items-center">
+    <div className="w-full relative h-full flex items-center justify-between py-2 flex-col">
+      <div className="flex flex-col gap-3 items-center">
         <p className={`text-5xl text-gray-800 ${dmsans.className} font-bold `}>
           Call Convo Boy
         </p>
@@ -16,7 +25,11 @@ export const Start = ({ handleStartCalling }: StartProps) => {
           Ready to connect
         </p>
       </div>
-      <div className="flex mt-25 flex-col items-center gap-2">
+      <LevelChooser
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
+      <div className="flex flex-col items-center gap-8">
         <div
           onClick={handleStartCalling}
           className="flex items-center bg-size-[200%_200%] gap-2 shadow-lg hover:shadow-2xl hover:scale-[1.05] transition-all cursor-pointer px-4 py-3 rounded-full bg-linear-to-r from-[#00C9B5] to-[#14C900] hover:animate-gradient-flow"
@@ -27,9 +40,7 @@ export const Start = ({ handleStartCalling }: StartProps) => {
           </p>
         </div>
       </div>
-      <p className="text-sm absolute bottom-0 text-gray-600">
-        Click to initiate call
-      </p>
+      <p className="text-sm text-gray-600">Click to initiate call</p>
     </div>
   );
 };

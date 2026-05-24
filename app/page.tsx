@@ -17,7 +17,13 @@ export default function ChatPage() {
     isCalling,
   } = useManageCall();
 
-  const { sendMessage, isAudioPlaying, history } = useSendMessage({
+  const {
+    sendMessage,
+    isAudioPlaying,
+    history,
+    selectedOption,
+    setSelectedOption,
+  } = useSendMessage({
     setHasFinishedSession,
     setHasStartedSession,
   });
@@ -27,7 +33,7 @@ export default function ChatPage() {
   return (
     <div className="w-full bg-size-[400%_400%] animate-gradient-flow bg-linear-120 from-[#102428] to-[#141028] h-screen flex justify-center items-center mx-auto p-8">
       <div
-        className={`flex overflow-hidden justify-center items-start shadow-2xl rounded-4xl bg-linear-to-r from-[#C5E8D8] to-[#C5D5E8] transition-all ${!hasStartedSession && !hasFinishedSession && !isCalling ? "h-80 w-120 py-7" : "h-[calc(100vh-5rem)] w-130"}`}
+        className={`flex justify-center items-start shadow-2xl rounded-4xl bg-linear-to-r from-[#C5E8D8] to-[#C5D5E8] transition-all ${!hasStartedSession && !hasFinishedSession && !isCalling ? "h-100 w-120 py-7" : "overflow-hidden h-[calc(100vh-5rem)] w-130"}`}
       >
         {hasStartedSession && (
           <Speak
@@ -40,7 +46,11 @@ export default function ChatPage() {
         )}
 
         {!isCalling && !hasStartedSession && !hasFinishedSession && (
-          <Start handleStartCalling={handleStartCalling} />
+          <Start
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            handleStartCalling={handleStartCalling}
+          />
         )}
         {isCalling && <Calling handleHangup={handleHangup} />}
         {hasFinishedSession && (

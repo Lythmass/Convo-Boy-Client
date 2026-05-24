@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { sendData } from "../helpers/sendData";
+import { IOptionProps } from "../components/Start/Option";
+import { englishLevels } from "../helpers/englishLevels";
 
 export interface IHistory {
   role: "user" | "assistant" | "system";
@@ -24,6 +26,9 @@ export const useSendMessage = ({
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState<IHistory[]>([]);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<IOptionProps | null>(
+    englishLevels[0],
+  );
 
   const sendMessage = async (audioBlob: Blob) => {
     if (!audioBlob) {
@@ -59,5 +64,7 @@ export const useSendMessage = ({
     setHistory,
     sendMessage,
     isAudioPlaying,
+    selectedOption,
+    setSelectedOption,
   };
 };
