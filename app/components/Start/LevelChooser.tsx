@@ -37,7 +37,7 @@ export const LevelChooser = ({
           fill="#101828"
         />
         {isOpen && (
-          <div className="absolute top-full z-1000 left-0 w-full mt-2 backdrop-brightness-95 bg-[#c5e3e8] border border-slate-400 rounded-xl">
+          <div className="absolute shadow-2xl top-full z-1000 left-0 w-full mt-2 backdrop-brightness-95 bg-[#BBD3D4] border border-slate-400 rounded-xl">
             {englishLevels.map((level) => {
               return (
                 <div onClick={() => setSelectedOption(level)} key={level.id}>

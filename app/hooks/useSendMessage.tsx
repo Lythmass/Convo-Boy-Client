@@ -36,7 +36,11 @@ export const useSendMessage = ({
     }
     setLoading(true);
     try {
-      const data: IChatResponse = await sendData(audioBlob, history);
+      const data: IChatResponse = await sendData(
+        audioBlob,
+        history,
+        selectedOption,
+      );
       setHistory((prev) => [...prev, ...data.reply]);
       const audio = new Audio(`data:audio/mp3;base64,${data.audio_file}`);
       audio.play();
