@@ -21,6 +21,7 @@ export default function ChatPage() {
     sendMessage,
     isAudioPlaying,
     history,
+    setHistory,
     selectedOption,
     setSelectedOption,
   } = useSendMessage({
@@ -31,9 +32,9 @@ export default function ChatPage() {
     useBeginRecording({ sendMessage });
 
   return (
-    <div className="w-full bg-size-[400%_400%] animate-gradient-flow bg-linear-120 from-[#102428] to-[#141028] h-screen flex justify-center items-center mx-auto p-8">
+    <div className="w-full bg-size-[400%_400%] animate-gradient-flow bg-linear-120 from-[#102428] to-[#141028] min-h-dvh flex justify-center items-center mx-auto p-3 sm:p-6 md:p-8">
       <div
-        className={`flex justify-center items-start shadow-2xl rounded-4xl bg-linear-to-r from-[#C5E8D8] to-[#C5D5E8] transition-all ${!hasStartedSession && !hasFinishedSession && !isCalling ? "h-100 w-120 py-7" : "overflow-hidden h-[calc(100vh-5rem)] w-130"}`}
+        className={`flex justify-center items-start shadow-2xl rounded-3xl sm:rounded-4xl bg-linear-to-r from-[#C5E8D8] to-[#C5D5E8] transition-all ${!hasStartedSession && !hasFinishedSession && !isCalling ? "min-h-[24rem] w-full max-w-[30rem] px-4 py-6 sm:h-100 sm:px-0 sm:py-7" : "overflow-hidden h-[calc(100dvh-1.5rem)] w-full max-w-[32.5rem] sm:h-[calc(100dvh-3rem)] md:h-[calc(100vh-5rem)]"}`}
       >
         {hasStartedSession && (
           <Speak
@@ -55,7 +56,10 @@ export default function ChatPage() {
         {isCalling && <Calling handleHangup={handleHangup} />}
         {hasFinishedSession && (
           <End
-            closeEndScreen={() => setHasFinishedSession(false)}
+            closeEndScreen={() => {
+              setHistory([]);
+              setHasFinishedSession(false);
+            }}
             messages={history}
           />
         )}

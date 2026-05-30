@@ -29,7 +29,7 @@ export const SpeakButton: React.FC<ISpeakButtonProps> = ({
       className={`border-3 ${isRecording ? "border-red-500 hover:bg-red-500" : "border-cyan-500 hover:bg-cyan-500"}`}
       handleClick={handleClick}
     >
-      {!isRecording && <MicrophoneSVG width={28} height={28} fill="#fff" />}
+      {!isRecording && <MicrophoneSVG width={25} height={25} fill="#fff" />}
       {isRecording && (
         <div className="relative w-5 h-5">
           <div className="absolute w-full h-full top-0 left-0 animate-ring-expand bg-white rounded-full" />

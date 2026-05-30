@@ -16,9 +16,11 @@ export const Start = ({
   setSelectedOption,
 }: StartProps) => {
   return (
-    <div className="w-full relative h-full flex items-center justify-between py-2 flex-col">
+    <div className="w-full relative h-full flex items-center justify-between gap-6 py-2 flex-col">
       <div className="flex flex-col gap-3 items-center">
-        <p className={`text-5xl text-gray-800 ${dmsans.className} font-bold `}>
+        <p
+          className={`text-center text-3xl sm:text-5xl text-gray-800 ${dmsans.className} font-bold `}
+        >
           Call Convo Boy
         </p>
         <p className={`text-sm text-gray-600 ${nunito.className} `}>

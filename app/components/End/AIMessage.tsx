@@ -13,8 +13,10 @@ export const AIMessage = ({ message }: { message: string }) => {
           Convo Boy
         </p>
       </div>
-      <div className="w-[90%] bg-linear-to-l from-[#DCFCE7] to-[#DCFCF7] rounded-r-xl rounded-bl-xl p-4 self-start">
-        <p className={`${nunito.className} text-gray-900`}>{message}</p>
+      <div className="w-[92%] sm:w-[90%] bg-linear-to-l from-[#DCFCE7] to-[#DCFCF7] rounded-r-xl rounded-bl-xl p-3 sm:p-4 self-start">
+        <p className={`${nunito.className} text-sm sm:text-base break-words text-gray-900`}>
+          {message}
+        </p>
       </div>
     </div>
   );

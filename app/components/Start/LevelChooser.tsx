@@ -15,7 +15,7 @@ export const LevelChooser = ({
 }: ILevelChooserProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="w-1/2 flex items-center select-none justify-center flex-col gap-2">
+    <div className="w-full max-w-72 sm:w-1/2 flex items-center select-none justify-center flex-col gap-2">
       <p className={`${nunito.className} capitalize text-sm text-gray-600`}>
         English Level
       </p>
@@ -24,7 +24,7 @@ export const LevelChooser = ({
         className="w-full relative hover:backdrop-brightness-90 transition-all backdrop-brightness-95 cursor-default flex items-center justify-center border border-slate-400 p-3 rounded-xl"
       >
         <p
-          className={`${nunito.className} ml-auto capitalize font-semibold text-sm text-gray-900`}
+          className={`${nunito.className} ml-auto capitalize font-semibold text-sm text-center text-gray-900`}
         >
           {selectedOption
             ? `${selectedOption.level} - ${selectedOption.value}`

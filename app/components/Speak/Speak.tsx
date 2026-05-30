@@ -20,11 +20,11 @@ export const Speak = ({
   handleHangup,
 }: ISpeakProps) => {
   return (
-    <div className="w-full rounded-4xl relative z-10 gap-5 flex flex-col items-center h-full">
+    <div className="w-full rounded-3xl sm:rounded-4xl relative z-10 gap-5 flex flex-col items-center h-full">
       <Background />
       <Timer />
       <LionIdle isPlayingAudio={isAudioPlaying} />
-      <div className="w-full h-full flex gap-5 items-end justify-center z-100 p-4">
+      <div className="w-full h-full flex gap-4 sm:gap-5 items-end justify-center z-100 p-3 sm:p-4">
         <EndCallButton handleHangup={handleHangup} />
         <SpeakButton
           isRecording={isRecording}

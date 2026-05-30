@@ -14,8 +14,10 @@ export const Timer = () => {
   const secondsFormatted = Math.round(seconds % 60);
   const minutesFormatted = Math.floor(seconds / 60);
   return (
-    <div className="pt-4 w-full flex items-center justify-center">
-      <p className={`text-2xl font-medium text-gray-100 ${dmsans.className}`}>
+    <div className="pt-3 sm:pt-4 w-full flex items-center justify-center">
+      <p
+        className={`text-xl sm:text-2xl font-medium text-gray-100 ${dmsans.className}`}
+      >
         {minutesFormatted < 10 && "0"}
         {minutesFormatted}:{secondsFormatted < 10 && "0"}
         {secondsFormatted}

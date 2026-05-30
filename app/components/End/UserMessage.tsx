@@ -11,8 +11,10 @@ export const UserMessage = ({ message }: { message: string }) => {
           U
         </p>
       </div>
-      <div className="w-[90%] bg-linear-to-r from-[#51A2FF] to-[#5751FF] rounded-l-xl rounded-br-xl p-4 self-end">
-        <p className={`${nunito.className} text-gray-50`}>{message}</p>
+      <div className="w-[92%] sm:w-[90%] bg-linear-to-r from-[#51A2FF] to-[#5751FF] rounded-l-xl rounded-br-xl p-3 sm:p-4 self-end">
+        <p className={`${nunito.className} text-sm sm:text-base break-words text-gray-50`}>
+          {message}
+        </p>
       </div>
     </div>
   );

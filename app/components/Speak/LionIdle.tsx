@@ -4,7 +4,7 @@ interface ILionIdleProps {
 
 export const LionIdle: React.FC<ILionIdleProps> = ({ isPlayingAudio }) => {
   return (
-    <div className="w-full h-full absolute rounded-4xl overflow-hidden">
+    <div className="w-full h-[75%] bottom-0 sm:h-full sm:top-0 absolute rounded-3xl sm:rounded-4xl overflow-hidden">
       <video
         autoPlay
         loop
