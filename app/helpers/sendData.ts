@@ -11,10 +11,13 @@ export const sendData = async (
   formData.append("audio_file", audioBlob, "recording.webm");
   formData.append("english_level", JSON.stringify(selectedOption?.value));
 
-  const response = await fetch("http://127.0.0.1:8000/chat", {
-    method: "POST",
-    body: formData,
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_CONVO_BOY_API}/chat`,
+    {
+      method: "POST",
+      body: formData,
+    },
+  );
 
   const data = await response.json();
   return data;
